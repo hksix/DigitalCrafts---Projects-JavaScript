@@ -104,6 +104,48 @@ more boolenas
 //     // ! is saying 'not' something 
 // }
 
+// 5 =='5' equals true.. but 5 ==='5' is false
+/* tooBooleean(true) is true
+toBoolean(null) is false 
+toBoolean(0) is false 
+toBoolen(121234) is true
+toBoolean("adadw") is true 
+toBoolean(NaN) is false
+
+var name;
+var shoes = "addidas"
+
+if (name && shoes) {
+    console.log("yep")
+} else{
+    console.log("false")
+}
+
+if ((name === "chris") && (shoes === 'addidas")) {
+    console.log("yep")
+} else{
+    console.log("false")
+}
+or Cleaner way is 
+var isChris = (name === "chris");
+var AreAddidas = (shoes === 'addidas');
+if (isChris && isAddidas) {
+    console.log("yep");
+} else{
+    console.log("false");
+}
+
+var i = 10;
+while (i >0){
+    console.log('i: ' + i);
+    i--;
+}
+var i = 10;
+while (i >0){
+    console.log('i: ' + --i); this will print 9 to 0 while i-- will print 10 to 1 
+    
+*/
+
 // JavaScript 101 Exercises
 // Hello, you!
 
