@@ -166,3 +166,23 @@ function leetSpeak(word){
     }
     console.log(leetWord);
 }
+
+//  Long-long Vowels
+function longLongVowels(word){
+    var vowels= ['a','e','i','o','u',];
+    var word = word.split('');
+    var longWord= '';
+    for (var i = 0; i<= word.length -1; i++){
+        if(word.indexOf(i) in vowels){
+            if (word[i] === word[i+1]){
+                // if(word[i]=== vowels[j]){
+                longWord = longWord + word[i].repeat(4);
+                // break;
+            }
+        }else{
+            longWord = longWord + word[i];
+            // break;
+        }
+    }console.log(longWord);
+}
+longLongVowels('Cheese');
