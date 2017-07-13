@@ -55,6 +55,8 @@ var keys = Object.keys(contact1)
 for(var i = 0; i <keys.length; i++){
     console.log(contact1[keys[i]]);
 }
+this creates an error message
+throw new Error("ya dun messed up")
 */
 
 console.log("hello");
@@ -120,4 +122,47 @@ function factorsOfNum(num){
         }
     }
     console.log(factorList);
+}
+
+// Ceaser Cipher 
+function cipher(word, offset){
+    var alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    // var alphabetSliced = alphabet.slice(0,offset);
+    // var alphaOffset = alphabet + alphabetSliced;
+    // var alphabetOffset = alphaOffset.slice(offset);
+    var decodedMessage= [];
+    word = word.split('');
+    for(var i = 0; i<word.length; i++){
+        index = alphabet.indexOf(word[i]);
+        decodedMessage[i] = alphabet[index +offset];
+    }
+    decodedMessage= decodedMessage.join('');
+    console.log(decodedMessage);
+}
+
+// Leetspeak
+function leetSpeak(word){
+    var leet= {
+        a : '4',
+        e : '3',
+        g : '6',
+        i : '1',
+        o : '0',
+        s : '5',
+        t : '7'
+    }
+    word = word.split('');
+    var leetWord ='';   
+    for (var i = 0; i<word.length; i++){
+        for (var j = 0; j<Object.keys(leet).length-1; j++){
+            if (word[i] in leet){
+                leetWord = leetWord + leet[word[i]];
+                break;
+            } else {
+                leetWord = leetWord + word[i];
+                break;
+            }
+        }
+    }
+    console.log(leetWord);
 }
