@@ -1,141 +1,4 @@
-// console.log('hello World!');
-/* This is the "print" command
-You can use "" '' ` ` for strings  (use back quote ` for multiline paragraph)
-Concatinating +
-Variables start with var. if you dont use "var" a global varibale is created, even from inside a function
-Can declare blank var for e.g var shoes; calling blank identifiers will print 'undefined'
-Shoes = "addidas"; this is called an assignment statement 
-Uncaught reference errors is when you call a var that isnt defined . for e.g shoaws  
-Var name can start with "$" cant start with number. 
-Can't use reserved words
-            abstract  	else  	    instanceof  super  
-            boolean  	enum  	    int  	    switch  
-            break  	    export      interface  	synchronized  
-            byte  	    extends     let  	    this  
-            case  	    false  	    long  	    throw  
-            catch  	    final  	    native  	throws  
-            char  	    finally     new  	    transient  
-            class  	    float  	    null  	    true  
-            const  	    for  	    package  	try  
-            continue  	function    private  	typeof  
-            debugger  	goto  	    protected  	var  
-            default  	if  	    public  	void  
-            delete  	implements  return  	volatile  
-            do  	    import  	short  	    while  
-            double  	in  	    static  	with  
-    this will yield Syntax error: Unexpected token
-    Unexpected token also is when you miss a ; () {} etc
-Use camelCase not snake_case
-string length
-    no len fucntion
-    use .length property
-    var hey = "Hello There";
-    hey.length; 
-Use .MD files 
-string indexing
-    var hey= "hello there";
-    hey[1]
-    prints e
-
-    or
-    hey.charAt(1);
-    prints e
-
-numbers: all numbers are floats (?)
-    numbers will automatically round 
-
-converting strings to numbers 
-    Number('5');
-    the Number() function will needs to be capitalized 
-    Number('5') + 5;
-    10
-NaN  = not a number
-    python equivalent int('blah')
-    Number('Blahh') prints NaN
-
-converting number to string
-    String(45);
-
-Math.abs Math.pow Math.round
-    this is the Math module. 
-
-User Input
-    var name = prompt('hey. whats your name '):
-
-If statements
-    a condition needs to be in ()
-    body needs to be wrapped in {}
-
-    if (age >= 21){
-        console.log("party");
-    } else if (age >=16){
-        console.log ('some shit'); 
-    } else {
-        console.log ('some shit'); 
-    }
-true and false are not capitalized 
-
-more boolenas
- logical 'and' is && in JS
-    true && 0 && false = 0
-    true & 5 = 1 USE two && 
- logical or is ||
-
-*/
-// var shoes = 'nike';
-
-// // def is called fucntion
-
-// function printThing(){
-//     // console.log('a thing');
-//     return 'a thing';
-
-// }
-
-// function greet(whom, what){
-//     if (!whom){
-//         whom = "Carl Vader";
-//     }
-
-//     return 'Hello there,' + whom + ' to ' + what;
-
-//     // can put null or undefined to avoid passing in value 
-//     // !null returns true 
-//     // ! is saying 'not' something 
-// }
-
-// 5 =='5' equals true.. but 5 ==='5' is false
-/* tooBooleean(true) is true
-toBoolean(null) is false 
-toBoolean(0) is false 
-toBoolen(121234) is true
-toBoolean("adadw") is true 
-toBoolean(NaN) is false
-
-var name;
-var shoes = "addidas"
-
-if (name && shoes) {
-    console.log("yep")
-} else{
-    console.log("false")
-}
-
-if ((name === "chris") && (shoes === 'addidas")) {
-    console.log("yep")
-} else{
-    console.log("false")
-}
-or Cleaner way is 
-var isChris = (name === "chris");
-var AreAddidas = (shoes === 'addidas');
-if (isChris && isAddidas) {
-    console.log("yep");
-} else{
-    console.log("false");
-}
-
-var i = 10;
+/* var i = 10;
 while (i >0){
     console.log('i: ' + i);
     i--;
@@ -143,55 +6,118 @@ while (i >0){
 var i = 10;
 while (i >0){
     console.log('i: ' + --i); this will print 9 to 0 while i-- will print 10 to 1 
-    
+
+for loops!
+for (var i=0; i < 10; i = i+1){
+    console.log('i: ' + i); 
+}
+
+var people = ['alex', 'bard', 'peeps'];
+    people.push('ellen');
+    people.pop(); 
+    people.push('ellen');
+var goodOlEllen = peeps.pop();
+    people.shift() takes the 0 position away
+    people.unshift("alex") adds alex back at 0 
+    peeps.join(" is friends with ");
+    people.join('\n') makes index of array
+    people.indexOf('alex') prints 0 
+    people.indexOf('nonexistnat') prints -1 
+    people.sort() sorts by alphabetical order 
+
+    people.sort(function (a, b) { this sorts in reverse 
+        if (b > a) {
+            return 1;
+        } else if (b == a) {
+            return 0;
+        }else {
+            return -1;
+        });
+dictionaries!
+var contact1 = {
+    name: "tim",
+    job: 'spoiler',
+    face: 'beardman'
+};
+contact1['face']; gets beardman
+contact1['face'] = 'baby' changes beardman to baby
+contact1['lunch'] = 'sandwhcich'; addes a new key and value
+contact1.face same as contact1['face']
+delete 
+nesting array in array!
+contact1.coffee = {strength: "strong"
+color: 'black'}
+
+
+
+loop through object
+var keys = Object.keys(contact1)
+for(var i = 0; i <keys.length; i++){
+    console.log(contact1[keys[i]]);
+}
 */
 
-// JavaScript 101 Exercises
-// Hello, you!
+console.log("hello");
+// JavaScript102 exercises
 
-function hello(name){
-    console.log("Hello " + name);
+// Print Numbers
+
+function printNumbers(start, end){
+    while (Number(start)<= Number(end)){
+        console.log(start);
+        ++start;
+  }
 }
-
-
-// Hello, you! Part 2
-
-function hello2(name){
-    if (!name){
-        console.log("Hello World!");
+function printNumbersFor(start,end){
+    for (i = Number(start); i<= Number(end); i++) {
+        console.log(i);
     }
-    console.log("Hello " + name);
 }
 
-// Madlib
-function madLib(name, subject){
-    return name +'\'s favorite subject in school is ' + subject + '.'; 
-}
-
-//Tip Calculator
-function tipAmount(amount, service){
-    intAmount = Number(amount);
-    if (service == "good"){
-        return tip = (20);
-    }else if (service == "fair"){
-         return tip = (15);
-    }else if (service == "bad"){
-         return tip = (10);
-    }else{
-        console.log("invalid");
+// Print a Square
+function printSquare(number){
+    var totalNumber=Number(number);
+    var i = 0;
+    var star= '*';
+    while (i <= totalNumber -1){
+        console.log(star.repeat(totalNumber ));
+        i = i + 1;
     }
-    // console.log(tip);
+    }
 
+// Print a box
+function printBox(width, height){
+    nWidth = Number(width);
+    nHeight = Number(height);
+    var i = 0;
+    var star = '*';
+    var space = " ";
+    console.log(star.repeat(width));
+    while (i<=height){
+        console.log(star + space.repeat(width-2) + star);
+        i = i +2;
+    }
+    console.log(star.repeat(width));
 }
-// Tip Calculator 2
-function totalAmount(amount, service){
-       tips = tipAmount(amount, service);
-       return total = Number(tips) + Number(amount);
+// Print a Banner
+function printBanner(word){
+    lengthOfWord = word.length;
+    console.log("*".repeat(lengthOfWord+4));
+    console.log("*" +" "+ word+ " "+ "*");
+    console.log("*".repeat(lengthOfWord+4));
 }
 
-// Tip Calculator 3
-function splitAmount(amount, service, people){
-    total = totalAmount(amount, service)
-    return total / Number(people);
+// Factor a Number
+function factorsOfNum(num){
+    var i = 0;
+    var factorList = [];
+    while (i< num){
+        if (num % i == 0){
+            factorList.push(i);
+            i++;
+        }else{
+            i++;
+        }
+    }
+    console.log(factorList);
 }
-
