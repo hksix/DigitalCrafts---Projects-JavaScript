@@ -57,6 +57,22 @@ for(var i = 0; i <keys.length; i++){
 }
 this creates an error message
 throw new Error("ya dun messed up")
+
+
+function sayHello(){
+    console.log('Haaaayy');
+}
+
+function callThreeTimes( fn){
+    fn();
+    fn();
+    fn();
+}
+fucntion callNTimes(num, fn){
+    for (var i = 0; I < num; i++){
+        fn();
+    }
+}
 */
 
 console.log("hello");
@@ -173,7 +189,7 @@ function longLongVowels(word){
     var word = word.split('');
     var longWord= '';
     for (var i = 0; i<= word.length -1; i++){
-        if(word.indexOf(i) in vowels){
+        if(word[i]in vowels(word[i])){
             if (word[i] === word[i+1]){
                 // if(word[i]=== vowels[j]){
                 longWord = longWord + word[i].repeat(4);
@@ -183,6 +199,48 @@ function longLongVowels(word){
             longWord = longWord + word[i];
             // break;
         }
-    }console.log(longWord);
+    }
+    console.log(longWord);
 }
-longLongVowels('Cheese');
+// longLongVowels('Cheese');
+
+// Tic Tac Toe
+function ticTacToe(){
+    board = [[null, 'O', null],
+            ['X', 'X', 'X'],
+            [null, 'X', 'O']];
+            
+    var x = 'x';
+    var y = '0';
+    if (((board[0][0]) === (board[0][1])) && ((board[0][1]) === (board[0][2])) && ((board[0][1]) !==null)) { 
+        console.log((board[0][0] + " win\'s"));
+    }
+    else if (((board[1][0]) === (board[1][1])) && ((board[1][1]) === (board[1][2])) && ((board[1][1]) !==null)) { 
+        console.log((board[1][0] + " win\'s"));
+    }
+    else if (((board[2][0]) === (board[2][1])) && ((board[2][1]) === (board[2][2])) && ((board[2][1]) !==null)) { 
+        console.log((board[2][0] + " win\'s"));
+    }
+    else if (((board[0][0]) === (board[1][0])) && ((board[1][0]) === (board[2][0])) && ((board[1][0]) !==null)) { 
+        console.log((board[0][0] + " win\'s"));
+    }
+    else if (((board[0][1]) === (board[1][1])) && ((board[1][1]) === (board[2][1])) && ((board[1][1]) !==null)) { 
+        console.log((board[1][1] + " win\'s"));
+    }
+    else if (((board[0][2]) === (board[1][2])) && ((board[1][2]) === (board[2][2]) && ((board[1][2]) !==null))) { 
+        console.log((board[1][2] + " win\'s"));
+    }
+    else if (((board[0][0]) === (board[1][1])) && ((board[1][1]) === (board[2][2])) && ((board[1][1]) !==null)) { 
+        console.log((board[1][1] + " win\'s"));
+    }
+    else if (((board[2][0]) === (board[1][1])) && ((board[1][1]) === (board[0][2])) && ((board[1][1]) !==null)) { 
+        console.log((board[1][1] + " win\'s"));
+    }else{
+        console.log('none');
+    }
+}
+// ticTacToe([
+//   ['O', 'O', 'O'],
+//   ['X', null, 'X'],
+//   [null, 'X', null]
+//   ])
