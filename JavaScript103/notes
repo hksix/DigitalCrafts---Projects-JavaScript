@@ -1,0 +1,77 @@
+Scope:
+
+function Scope 
+Global Scope 
+
+Hoisting - Variable declarations. Var moves us 
+    assignments stay in their place 
+    keyword "let" sets variables that wont get hoisted 
+    But good practice is to stick all var declarations on the top of the function  
+
+Function expressions - below is another way to write functions. However the method below doesnt get hoisted 
+    var sumNumbers = function(arr){
+        var results = 0;
+        for (var = 1; i<arr.length; i++){
+            results = results + arr[i];
+        }
+        resturn results;
+    }
+
+forEach - no more for loops
+var nums = [1,2,3,4,5]:
+function log(what){
+    console.log(what);
+}
+nums.forEach(log); 
+
+var nums = [1,2,3,4,5];
+nums.forEach(function (what){
+    console.log(what);
+});
+
+nums.forEach(function callback(currentValue, index, array){
+    //your iterator
+}[, thisArg]);
+
+nums.forEach(function (what, i, arr){
+    console.log(i + ": " + what + 'is part of ' + arr);
+});
+
+>>>>array.map
+    function square(n){
+        return n*n;
+    }
+
+    var squares = nums.map(square);  .map will transform array to a new array. no more .push to empty array var
+
+>>>>Filtering Data
+var nums = [1,2,3,4,5,6,-12,-323, 83741, -1];
+var results = [];
+for (var i = ; i< nums.length; i++){
+    if (nums[i] >= 0) {
+        results.push(nums[i]);
+    }
+}
+function isPositive(num){
+    reuturn num > 0;
+}
+var reuslts = nums.filter(isPositive);   filter()	Creates a new array with every element in an array that pass a test
+
+.filter(has('pets'))
+
+.sort(by('height'))
+
+function by(propName){
+    return function (a,b){
+        return a[propName] > b[propName];
+    }
+}
+
+.map(get('name'))
+    function get(propName){
+        return function (obj){
+            return obj[propName];
+        }
+    }
+
+.typeOf

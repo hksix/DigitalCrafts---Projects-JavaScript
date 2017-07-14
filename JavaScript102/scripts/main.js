@@ -262,6 +262,10 @@ function rockPaperScissors(player1, player2){
                     'scissors' : 'draw'},
 
 
-        } 
-    }
+        }
+
+        console.log("Player1 - You " + rules[player1][player2]);
+        // console.log(rules.player1.player2);
+   }
+
 
