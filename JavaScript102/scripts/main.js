@@ -185,24 +185,26 @@ function leetSpeak(word){
 
 //  Long-long Vowels
 function longLongVowels(word){
-    var vowels= ['a','e','i','o','u',];
+    var vowels= ['a','e','i','o','u'];
     var word = word.split('');
     var longWord= '';
     for (var i = 0; i<= word.length -1; i++){
-        if(word[i]in vowels(word[i])){
+        for (word.indexOf[i] in vowels){
             if (word[i] === word[i+1]){
                 // if(word[i]=== vowels[j]){
                 longWord = longWord + word[i].repeat(4);
-                // break;
+                break;
+            } else{
+                longWord = longWord + word[i];
+                break;
             }
-        }else{
-            longWord = longWord + word[i];
-            // break;
         }
+    
     }
     console.log(longWord);
 }
-// longLongVowels('Cheese');
+longLongVowels('Cheese');
+
 
 // Tic Tac Toe
 function ticTacToe(){
@@ -239,8 +241,27 @@ function ticTacToe(){
         console.log('none');
     }
 }
-// ticTacToe([
-//   ['O', 'O', 'O'],
-//   ['X', null, 'X'],
-//   [null, 'X', null]
-//   ])
+
+// // ticTacToe([
+// //   ['O', 'O', 'O'],
+// //   ['X', null, 'X'],
+// //   [null, 'X', null]
+// //   
+// }
+
+function rockPaperScissors(player1, player2){
+    var rules = {
+        'rock':     {'rock': 'draw',
+                    'paper': 'lose',
+                    'scissors' : 'win'},
+        'paper':     {'paper': 'draw',
+                    'scissors': 'lose',
+                    'rock' : 'win'},
+        'scissors': { 'rock': 'lose',
+                    'paper': 'win',
+                    'scissors' : 'draw'},
+
+
+        } 
+    }
+
