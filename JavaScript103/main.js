@@ -252,3 +252,31 @@ function firstLetter(obj){
     return obj[0].toUpperCase();
 }
 
+// Str Multiply
+function strMultiply(word, num){
+    var arr = []
+    for (var i = 0; i<num; i++){
+    arr.push(word);
+        }
+    return arr.reduce(reducer, '');
+}
+
+// Generate a Box
+function box(width,height){
+    var box = ""
+    var colmn = ''
+    for(var i = 0; i< width -1; i++){
+        box = box + '*';
+        }
+    for (var j = 0; j< height -2 ; j++){
+        colmn = "*" + " " * width - 2 + "*";
+    }
+    for(var k = 0; k< width; k++){
+        box = box + '*';
+        }
+    
+    return box;
+    return colmn;
+
+    }
+    
