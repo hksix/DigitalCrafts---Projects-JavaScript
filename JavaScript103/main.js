@@ -242,4 +242,13 @@ function reducer(a,b){
     return a+b;
 }
 
-// 
+//Acronym
+function acronym (words){
+    var acronymArray = words.map(firstLetter).reduce(reducer,"");
+    console.log(acronymArray);
+} 
+
+function firstLetter(obj){
+    return obj[0].toUpperCase();
+}
+
