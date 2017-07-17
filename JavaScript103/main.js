@@ -265,13 +265,7 @@ function strMultiply(word, num){
 function box(width,height){
     var box = ""
     var colmn = ''
-    for(var i = 0; i< width -1; i++){
-        box = box + '*';
-        }
-    for (var j = 0; j< height -2 ; j++){
-        colmn = "*" + " " * width - 2 + "*";
-    }
-    for(var k = 0; k< width; k++){
+    for(var i = 0; i< width; i++){
         box = box + '*';
         }
     
@@ -280,3 +274,56 @@ function box(width,height){
 
     }
     
+
+// Object as Dictionary Exercises
+// Exercise 1
+var phonebookDict = {
+  Alice: '703-493-1834',
+  Bob: '857-384-1234',
+  Elizabeth: '484-584-2923'
+}
+
+// Write code to do the following:
+
+// Print Elizabeth's phone number.
+function printNum(name){
+    console.log(phonebookDict[name]);
+}
+// Add a entry to the dictionary: Kareem's number is 938-489-1234.
+function addToPhoneBook(name, num){
+    phonebookDict[name] = num;
+    console.log (phonebookDict);
+}
+// Delete Alice's phone entry.
+function delPhoneNum(name){
+    phonebookDict[name] = undefined;
+    console.log (phonebookDict);
+
+}
+// Change Bob's phone number to '968-345-2345'.
+function changePhoneNum(name,num){
+    phonebookDict[name] = num;
+    console.log(phonebookDict);
+}
+// Given this code var personName = 'Elizabeth';, use the variable personName to access the dictionary entry.
+function findPersonInfo(name){
+        console.log (name + ":" + phonebookDict[name]);
+    }
+
+// Use a for...in loop to print all the phone entries.
+function printAll(){
+ for (var i in phonebookDict){
+     console.log(i + ":" + phonebookDict[i]);
+ }
+}
+
+// Letter Histogram
+// function letterHistogram(word){
+//     wordDict = {};
+//     for (var i = 0; i<word.length; i++){
+//         for 
+//     }
+    
+    
+//     console.log(wordDict);
+// }
