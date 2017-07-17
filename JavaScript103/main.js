@@ -298,7 +298,12 @@ function strJoin (word, seperator){
 function reducer(a,b){
     return a+b;
 }
-
+// or
+function strJoinFancy(strs, sep){
+    return strs.reduce(function (tally,str){
+        return tally + sep +str;
+    });
+}
 //Acronym
 function acronym (words){
     var acronymArray = words.map(firstLetter).reduce(reducer,"");
@@ -338,7 +343,9 @@ function sorter(myArr){
 
 // sort an array 2
 function sortByLength(myArr){
-    return myArr.sort(function(a,b) {return a-b});
+    return myArr.sort(function (a,b){
+        return a-b
+    });
 }
 function lengthOfWord(obj){
     return word.length;
