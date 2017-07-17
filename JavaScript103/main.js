@@ -409,3 +409,51 @@ function letterHistogram(word) {
     })
     return obj
 }
+
+var days = Object.keys(stocks);
+
+// days.forEach(function (day) {
+//   console.log(stocks[day]);
+// });
+
+var dataz = days.map(function (day) {
+  return stocks[day];
+});
+
+function obtainData(time){
+    return dataz.map(function(day){
+        return day[time];
+    });
+}
+function Total(dataz,time){
+    return dataz.reduce(function (tally, current){
+        return (Number(tally) + Number(current[time]));
+    },0);
+}
+
+function getAverage(arr){
+    return arr.reduce(function(a,b){
+        return a+b / dataz.length;
+    },0);
+}
+function highestVal(time){
+    var data = obtainData(time);
+    var max =  data.sort(function (a,b){
+        return b-a});
+    return max[0];
+
+}
+
+function lowestVal(time){
+    var data = obtainData(time);
+    var min =  data.sort(function (a,b){
+        return a-b});
+    return min[0];
+
+}
+
+function dateOpenClose(){
+    for (var k in stocks)
+        console.log ("Date: " + k + " " +"Open: " + stocks[k]["1. open"] + " " + "Close: " +stocks[k]['4. close']);
+        
+    }
