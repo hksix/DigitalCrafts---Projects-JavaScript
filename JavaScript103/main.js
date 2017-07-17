@@ -95,17 +95,34 @@ var nums = [1,2,3,4,5,6,7,-1,-2,-3,-4,-5,-123];
 function isPositive(num){
     return num >= 0; 
 }
+function isNegative(num){
+    return num < 0;
+}
 
 
 function positiveNumPrinter(nums){
     var results = nums.filter(isPositive);
     console.log(results);
+    // return nums.filter(function (n){
+    //     return n >0;
+    // })
 }
+function makeFilter(fn){
+    return function (numArray){
+        return numArray.filter(fn);
+    }
+}
+
+var positive = makeFilter(isPositive);
+var negative = makeFilter(isNegative);
+var evens = makeFilter(isEven); 
+// i would call this but saying console.log(even(nums));
+// console.log(positive(nums));
 
 
 // Even Numbers
 function isEven(num){
-    return num % 2 ==0;
+    return num % 2 === 0;
 }
 
 function evenNumPrinter(nums){
@@ -115,13 +132,28 @@ function evenNumPrinter(nums){
 
 // Square the Numbers
 function squareNum(num){
-    return num * num
+    return num * num;
 }
 
 function squareNumPrinter(nums){
     var results = nums.map(squareNum);
     console.log(results);
 }
+// a better way to do this is below......
+function makeSquares(numArray){
+    return numArray.map(function (n){
+        return n*n;
+    });
+}
+
+// fancier way to do this
+function makeNumberTransformer(fn){
+    return function (numArray){
+        return numArray.map(fn);
+    }
+}
+var fancierSquare = makeNumberTransformer(squareNum);
+// console.log(fancierSquare(nums));
 
 // Cities 1 and 2 
 var cities = [
@@ -131,8 +163,8 @@ var cities = [
   { name: 'New York', temperature: 80.0 }
 ];
 
-function coolerCities(cities){
-    return cities.temperature < 70;
+function coolerCities(citiesArray){
+    return citiesArray.temperature < 70;
 }
 function getName(obj){
     return obj.name;
@@ -141,6 +173,13 @@ function getName(obj){
 function coolerCitiesPrinter(fn){
     console.log (cities.filter(fn).map(getName));
     // console.log(results);
+}
+
+// or
+function coolCities(cityArray){
+    return cityArray.filter(function(city){
+        return city.temperature < 70;
+    })
 }
 
 // Good job
@@ -169,10 +208,16 @@ function goodJobNamePrinter(fn){
     var results = people.map(fn);
     console.log (results);
 }
+// or...
+function congragulatePeep(peepArray){
+    return peepArray.map(function (peep){
+        return "Good Job, " + peep + "!" + "\n";
+    });
+}
 
 // 3 times
 
-function fun(){
+function hello(){
     console.log("Hello World");
 }
 
@@ -186,6 +231,9 @@ function call3Times(fn){
 
 function callNTimes(num, fn){
     return range(num).forEach(fn);
+    // for (var i = 0; i <num; i++){ 
+        // fun();
+    // }
 }
 
 function range(num){
@@ -196,16 +244,18 @@ function range(num){
     return arr;
 }
 
+// or
 
 // product
 function product(set){
-    return set.reduce(multipy, 1);
+    return set.reduce(multipy);
 
 }
 
 function multipy(a,b){
     return a * b;
 }
+
 
 //total price
 
@@ -225,7 +275,14 @@ function getPrice(obj){
 
 function total(products){
     var priceArray = products.map(getPrice);
-    return priceArray.reduce(addition,1);
+    return "$" + priceArray.reduce(addition);
+}
+
+// or
+function totalFancy(productArray){
+    return productArray.reduce(function (tally, current){
+        return tally + current['price'];
+    }, 0);
 }
 
 //Str Join
@@ -268,12 +325,24 @@ function box(width,height){
     for(var i = 0; i< width; i++){
         box = box + '*';
         }
-    
+
     return box;
     return colmn;
 
     }
-    
+
+// sort an Array
+function sorter(myArr){
+    return myArr.sort();
+}
+
+// sort an array 2
+function sortByLength(myArr){
+    return myArr.sort(function(a,b) {return a-b});
+}
+function lengthOfWord(obj){
+    return word.length;
+}    
 
 // Object as Dictionary Exercises
 // Exercise 1
@@ -318,12 +387,18 @@ function printAll(){
 }
 
 // Letter Histogram
-// function letterHistogram(word){
-//     wordDict = {};
-//     for (var i = 0; i<word.length; i++){
-//         for 
-//     }
-    
-    
-//     console.log(wordDict);
-// }
+function letterHistogram(word) {
+    let obj = {}
+
+    let wordToArr = word.trim().split('')
+    wordToArr.forEach(x => {
+        if (obj[x]) {
+          let currentTally = obj[x]
+          obj[x] = currentTally += 1
+        } else {
+          let count = 1
+          obj[x] = count
+        }
+    })
+    return obj
+}
