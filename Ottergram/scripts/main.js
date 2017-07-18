@@ -1,6 +1,60 @@
+var images = [
+        {href: "img/otter1.jpg" ,
+        text:"Stayin' Alive" ,
+        alt:"Barry the Otter" },
+
+        {href:"img/otter2.jpg" ,
+        text:"How Deep Is Your Love" ,
+        alt:"Robin the Otter" },
+
+        {href: "img/otter3.jpg" ,
+        text: "You Should Be Dancing" ,
+        alt:  "Maurice the Otter" },
+
+        {href: "img/otter4.jpg" ,
+        text:"Night Fever" ,
+        alt: "Lesley the Otter" },
+
+        {href:"img/otter5.jpg" ,
+        text:"To Love Somebody" ,
+        alt:"Barbara the Otter" },
+    ]
+function buildTags() {
+    var thumbnailList = document.querySelector('.thumbnail-list');
+    images.forEach(function (image){
+        //list
+        var imageList = document.createElement('li');
+        imageList.setAttribute('class', 'thumbnail-item');
+        //a tag
+        var imageAElement = document.createElement('a');
+        imageAElement.setAttribute('href', image.href);
+        imageAElement.setAttribute('data-image-role', "trigger");
+        imageAElement.setAttribute('data-image-title', image.alt);
+        imageAElement.setAttribute('data-image-url',image.href);
+        //img
+        var imageElement = document.createElement('img');
+        imageElement.setAttribute('class', 'thumbnail-image');
+        imageElement.setAttribute('src', image.href);
+        imageElement.setAttribute('alt', image.alt);
+        //span
+        var imageSpan = document.createElement('span');
+        imageSpan.setAttribute('class', 'thumbnail-title');
+        imageSpan.textContent = image.text;
+        //append
+        thumbnailList.appendChild(imageList);
+        imageList.appendChild(imageAElement);
+        imageAElement.appendChild(imageElement);
+        imageAElement.appendChild(imageSpan);
+    });
+}
+
+
+
 var DETAIL_IMAGE_SELECTOR = '[data-image-role="target"]';
 var DETAIL_TITLE_SELECTOR = '[data-image-role="title"]';
 var THUMBNAIL_LINK_SELECTOR = '[data-image-role="trigger"]';
+
+
 
 function setDetails(imageUrl, titleText){
     var detailImage = document.querySelector(DETAIL_IMAGE_SELECTOR);
@@ -12,6 +66,7 @@ function setDetails(imageUrl, titleText){
 
 function imageFromThumb(thumbnail){
     return thumbnail.getAttribute('data-image-url');
+    
 }
 
 function titleFromThumb(thumbnail){
@@ -21,10 +76,10 @@ function ThumbImgSelector(){
     return document.querySelectorAll(THUMBNAIL_LINK_SELECTOR);
 }
 function switchImage(){
-    var images = ThumbImgSelector();
+    var imagez = ThumbImgSelector();
     // var detailImage = document.querySelector(DETAIL_IMAGE_SELECTOR);
     // var detailTitle = document.querySelector(DETAIL_TITLE_SELECTOR);
-    images.forEach(function (image){
+    imagez.forEach(function (image){
         image.addEventListener('click', function (event){
             event.preventDefault();
             // detailImage.setAttribute('src',imageFromThumb(image));
@@ -46,5 +101,8 @@ function randomFirstImage(){
     setDetails(imageFromThumb(rand),titleFromThumb(rand));
     
 }
+buildTags();
 switchImage();
 randomFirstImage();
+
+
