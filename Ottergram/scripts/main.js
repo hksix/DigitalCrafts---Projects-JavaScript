@@ -77,13 +77,9 @@ function ThumbImgSelector(){
 }
 function switchImage(){
     var imagez = ThumbImgSelector();
-    // var detailImage = document.querySelector(DETAIL_IMAGE_SELECTOR);
-    // var detailTitle = document.querySelector(DETAIL_TITLE_SELECTOR);
     imagez.forEach(function (image){
         image.addEventListener('click', function (event){
             event.preventDefault();
-            // detailImage.setAttribute('src',imageFromThumb(image));
-            // detailTitle.textContent = titleFromThumb(image);
             setDetails(imageFromThumb(image),titleFromThumb(image));
 
     });
@@ -94,15 +90,14 @@ function switchImage(){
 function randomFirstImage(){
     var imgArr = [].slice.call(ThumbImgSelector(THUMBNAIL_LINK_SELECTOR));
     var rand = imgArr[Math.floor(Math.random() * imgArr.length)];
-    // var detailImage = document.querySelector(DETAIL_IMAGE_SELECTOR);
-    // var detailTitle = document.querySelector(DETAIL_TITLE_SELECTOR);
-    // detailImage.setAttribute('src',imageFromThumb(rand));
-    // detailTitle.textContent = titleFromThumb(rand);
     setDetails(imageFromThumb(rand),titleFromThumb(rand));
     
 }
+function main(){
 buildTags();
 switchImage();
 randomFirstImage();
+}
+main();
 
 
