@@ -20,9 +20,3 @@ header{
 .button{
     text-align: center;
 }
-
-@media (min-width: @grid-float-breakpoint) {
-    float: left;
-    width: percentage((@columns / @grid-columns));
-  }
-}
