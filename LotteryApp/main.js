@@ -39,6 +39,6 @@ function buttonPress(){
         randNumGen(MAIN_5_BALLS);
         randNumGen(LAST_2_BALLS);
     });
-    // console.log("HAPPEN!");
+    
     }
 buttonPress();

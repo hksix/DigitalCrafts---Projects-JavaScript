@@ -7,24 +7,34 @@
     <title>Lottery App</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/Users/hamzahaseeb/HTML-and-CSS-Repos/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <script src="/Users/hamzahaseeb/DigitalCrafts-06-2017/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
 </head>
 <body>
     <header>
         <h1>Lottery App</h1>
+        <p class="text-center" >Press button to generate numbers</p>
     </header>
-    <ul class = "number-spots" data-numbers="first-five">
-        <li data-ball="first-1" data-ball-num="5"></li>
-        <li data-ball="first-2" data-ball-num="5"></li>
-        <li data-ball="first-3" data-ball-num="5"></li>
-        <li data-ball="first-4" data-ball-num="5"></li>
-        <li data-ball="first-5" data-ball-num="5"></li>
+    <div class="row">
+    <div class="col-xs-6">
+    <ul class = "number-spots-5 text-center" data-numbers="first-five">
+        <li data-ball="first-1" data-ball-num="5">X</li>
+        <li data-ball="first-2" data-ball-num="5">X</li>
+        <li data-ball="first-3" data-ball-num="5">X</li>
+        <li data-ball="first-4" data-ball-num="5">X</li>
+        <li data-ball="first-5" data-ball-num="5">X</li>
     </ul>
-    <ul class = "number-spots" data-numbers="last-two">
-        <li data-numbers="last-1" data-ball-num="2">_</li>
-        <li data-numbers="last-2" data-ball-num="2">_</li>
+    </div>
+    <div class="col-xs-6">
+    <ul class = "number-spots-2" data-numbers="last-two">
+        <li data-numbers="last-1" data-ball-num="2">X</li>
+        <li data-numbers="last-2" data-ball-num="2">X</li>
     </ul>
+    </div>
+    </div>
+    <div class=button>
     <button data-button>GoodLuck!</button>
-
+    </div>
     <script src="main.js" charset="utf-8"></script>
 </body>
 </html>
