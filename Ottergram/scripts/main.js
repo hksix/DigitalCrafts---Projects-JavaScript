@@ -40,11 +40,16 @@ function buildTags() {
         var imageSpan = document.createElement('span');
         imageSpan.setAttribute('class', 'thumbnail-title');
         imageSpan.textContent = image.text;
+        // button
+        // var buttonBox = document.createElement('button');
+        // buttonBox.textContent = 'What!!!';
         //append
         thumbnailList.appendChild(imageList);
         imageList.appendChild(imageAElement);
         imageAElement.appendChild(imageElement);
         imageAElement.appendChild(imageSpan);
+        // imageAElement.appendChild(buttonBox);
+
     });
 }
 
@@ -82,10 +87,9 @@ function switchImage(){
             event.preventDefault();
             setDetails(imageFromThumb(image),titleFromThumb(image));
 
+
     });
     });
-
-
 }
 function randomFirstImage(){
     var imgArr = [].slice.call(ThumbImgSelector(THUMBNAIL_LINK_SELECTOR));
@@ -93,11 +97,28 @@ function randomFirstImage(){
     setDetails(imageFromThumb(rand),titleFromThumb(rand));
     
 }
+
+function imgSlid(){
+    
+   
+}
+
 function main(){
 buildTags();
 switchImage();
 randomFirstImage();
+titleSlide();
 }
 main();
+
+var btn = document.querySelector('button');
+var thumbnailarr = [].slice.call(document.querySelectorAll("li"));
+
+function toggleEndClass (box) {
+  box.classList.toggle('end');
+}
+btn.addEventListener('click', function () {
+  thumbnailarr.forEach(toggleEndClass);
+})
 
 

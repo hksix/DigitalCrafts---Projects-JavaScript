@@ -60,6 +60,7 @@ a {
   max-width: 120px;
   border: 1px solid rgb(100%, 100%, 100%);
   border: 1px solid rgba(100%, 100%, 100%, 0.8);
+  
 }
 
 .thumbnail-list {
@@ -100,6 +101,7 @@ a {
 .detail-image-frame {
   position: relative;
   text-align: center;
+  transition: all 2s ease-in-out;
 }
 
 .detail-image {
@@ -115,6 +117,7 @@ a {
   color: white;
   font-size: 40px;
   text-shadow: rgba(0, 0, 0, 0.9) 1px 2px 9px;
+  
 }
 
 
@@ -137,4 +140,8 @@ a {
   .thumbnail-item + .thumbnail-item {
     margin-top: 20px;
   }
+}
+.end{
+ transform: translate(200px, 0);
+
 }
