@@ -91,6 +91,7 @@ function switchImage(){
     });
     });
 }
+
 function randomFirstImage(){
     var imgArr = [].slice.call(ThumbImgSelector(THUMBNAIL_LINK_SELECTOR));
     var rand = imgArr[Math.floor(Math.random() * imgArr.length)];
@@ -99,7 +100,7 @@ function randomFirstImage(){
 }
 
 function imgSlid(){
-    
+
    
 }
 
