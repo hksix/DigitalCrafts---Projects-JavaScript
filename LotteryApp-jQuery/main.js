@@ -44,3 +44,14 @@ function buttonPress(){
 
     }
 buttonPress();
+
+function logger(){
+    var $logger = $('li');
+   nums = $logger.text();
+   nums.split('');
+   var $resultsBox = $('article');
+   var $li = $('<li></li>');
+   $resultsBox.text(nums);
+    // var sup = $logger.addClass($('article'));
+   $resultsBox.append($li);
+}
