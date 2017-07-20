@@ -1,13 +1,13 @@
-var MAIN_5_BALLS = ['[data-ball-num="5"]', 69];
-var LAST_2_BALLS = ['[data-ball-num="2"]', 20];
+var $MAIN_5_BALLS = [$('[data-ball-num="5"]')  , 69];
+var $LAST_2_BALLS = [$('[data-ball-num="2"]'), 20];
 
 function randNumGen(ballset){
-    var firstFive = document.querySelectorAll(ballset[0]);
+    var $firstFive = ballset[0];
     var randoNums = shuffler(ballset[1]);
-    var i = 0;
-    firstFive.forEach(function (num){
-        num.textContent = randoNums[i];
-        i++;
+    var j = 0;
+    $firstFive.each(function (i,num){
+        num.textContent = randoNums[j];
+        j++;
         });
 }
 
@@ -34,11 +34,12 @@ function shuffler(arrayLength){
     return arr;
 }
 function buttonPress(){
-    var btn = document.querySelector("button");
-    btn.addEventListener('click', function (){
+    var $btn = $("button");
+    $btn.on('click', function (){
         event.preventDefault();
-        randNumGen(MAIN_5_BALLS);
-        randNumGen(LAST_2_BALLS);
+        $('[data-ball-num="2"]').addClass('red');
+        randNumGen($MAIN_5_BALLS);
+        randNumGen($LAST_2_BALLS);
     });
 
     }
