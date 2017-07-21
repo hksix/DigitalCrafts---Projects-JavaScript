@@ -195,3 +195,47 @@ function splitAmount(amount, service, people){
     return total / Number(people);
 }
 
+// 3 to 5 mulitples
+function sumOf3and5Below1000(){
+    var arr = [];
+    for (var i =0; i<1000; i++){
+        if ((i % 3  === 0) || (i % 5 === 0)){
+        arr.push(i);
+        }
+    }
+    var total = arr.reduce(function (a , b){
+        return a + b;
+    });
+    return total;
+}
+
+
+function fibonacci(max){
+  var a = 1, b = 0, temp;
+    var nums = [];
+  while (b<=max){
+    temp = a;
+    a = a + b;
+    b = temp;
+    // num--;
+    nums.push(b);
+  }
+
+//   return nums.reduce(function (a,b){
+//       return a + b;
+//   });
+return nums;
+}
+
+function findEven(max){
+    var arr = fibonacci(max);
+    var arrOfEvens=[];
+    arr.forEach( function (num){
+        if (num % 2 ===0);
+        arrOfEvens.push(num);
+    });
+    var sumTotal= arrOfEvens.reduce(function (a,b){
+        return a +b;
+    });
+    return sumTotal;
+}
