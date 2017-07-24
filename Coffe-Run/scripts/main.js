@@ -16,7 +16,8 @@ $form.on('submit', function (event){
     event.preventDefault();
     setItemToLocal($dataKeyNameArr);
     dataDict($dataKeyNameArr);
-    sendDataToServer($dictData);
+    // sendDataToServer($dictData);
+    localStorage.setItem("order", $dataKeyNameArr);
 });
 
 
@@ -66,14 +67,14 @@ function dataDict(arr){
 
 function getServerData(){
     $.get(URL, function (data){
-        console.log(data);
+        return (data);
     });
 }
 
 
 function sendDataToServer(theData){
     $.post(URL,theData, function (resp){
-    console.log(resp);
+    return (resp);
     });
 }
 
@@ -84,11 +85,17 @@ function createCell(data){
     });
 }
 function drawData(data){
-    var $listing = $('[data-orders]');
-    var $table = $('<table>');
-    $listing.append($table);
-    $table.append(createCell(data));
+    // var $div = $('<div>')
+    checkboxIt();
+    return $('<div>');
+    document.body.append($div);
 }
 
 function dataFormater(data){
+}
+
+function checkboxIt() {
+    var x = document.createElement("INPUT");
+    x.setAttribute("type", "checkbox");
+    document.body.appendChild(x);
 }
