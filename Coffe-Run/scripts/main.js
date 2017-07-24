@@ -51,9 +51,6 @@ function dataDict(arr){
 }
 
 
-
-    
-
 // Ajax, part 2
 
 // Now it is time to add Ajax functionality to CoffeeRun.
@@ -78,4 +75,20 @@ function sendDataToServer(theData){
     $.post(URL,theData, function (resp){
     console.log(resp);
     });
+}
+
+function createCell(data){
+    return $('<tr>',{
+        'class': 'order-cell',
+        html: Object.keys(data) + Object.values(data)
+    });
+}
+function drawData(data){
+    var $listing = $('[data-orders]');
+    var $table = $('<table>');
+    $listing.append($table);
+    $table.append(createCell(data));
+}
+
+function dataFormater(data){
 }
