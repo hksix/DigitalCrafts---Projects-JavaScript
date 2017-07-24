@@ -12,6 +12,7 @@ var $dataKeyNameArr = [ ['coffee', $coffeeOrder],
                         ['strengthLevel', $strengthLevel]
                         ];
 var $dictData= {};
+var $dataArr = [];
 $form.on('submit', function (event){
     event.preventDefault();
     setItemToLocal($dataKeyNameArr);
@@ -50,7 +51,11 @@ function dataDict(arr){
         $dictData[arr[i][0]] = arr[i][1].val();
     }
 }
-
+function arrMaker(arr){
+    for (var i= 0; i<arr.length; i++){
+        $dataArr.push(arr[i][0], arr[i][1].val());
+} return $dataArr;
+}
 
 // Ajax, part 2
 
@@ -85,10 +90,11 @@ function createCell(data){
     });
 }
 function drawData(data){
-    // var $div = $('<div>')
     checkboxIt();
-    return $('<div>');
-    document.body.append($div);
+    var $div = $('<div>',{
+        text: arrMaker(data)
+    });
+    $('body').append($div);
 }
 
 function dataFormater(data){
