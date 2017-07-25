@@ -13,6 +13,7 @@ var $dataKeyNameArr = [ ['coffee', $coffeeOrder],
                         ];
 var $dictData= {};
 var $dataArr = [];
+var $serverOrders = {};
 $form.on('submit', function (event){
     event.preventDefault();
     setItemToLocal($dataKeyNameArr);
@@ -21,6 +22,7 @@ $form.on('submit', function (event){
     localStorage.setItem("order", $dataKeyNameArr);
     arrMaker($dataKeyNameArr);
     appendOrderToHTML($dictData);
+    getOrdersFromAPI();
 });
 
 
@@ -91,32 +93,58 @@ function createCell(data){
         html: Object.keys(data) + Object.values(data)
     });
 }
-function drawData(data){
-    checkboxIt();
-    var $div = $('<div>',{
-        text: arrMaker(data)
-    });
-    $('body').append($div);
-}
 
-function dataFormater(data){
-}
 
-function checkboxIt() {
+function checkboxIt(info) {
+    var diver = $('<div>');
+    var para = info;
+    var spaner = $(".past-order span");
     var x = document.createElement("INPUT");
     x.setAttribute("type", "checkbox");
-    document.body.appendChild(x);
-}
+    // diver.append($('[data-role-past-orders]'));
+    // diver.append(spaner);
+    spaner.append(diver);
+    diver.append(x);
+    x.append(" " + para + " ");
+    
+}   
 
 function appendOrderToHTML(data){
+    checkboxIt();
+    var diver = $('<div>');
         var x = $(".past-order span");
-            x.append("order : " + "<br />"+ " " + Object.values(data) + "<br />");
-    }
+            return(Object.keys(data).forEach(function (key){
+            x.append(diver,data[key]);
+        }))
+}
+
+
 
 function getDataFromAPI(){
     return $.getJSON(URL);
 }
 function getOrdersFromAPI(){
+    var diver = $('<div>');
     getDataFromAPI()
-        .then(appendOrderToHTML);
+        .then(function (order){
+            $serverOrders = order;
+            // Object.keys($serverOrders).forEach(function (key){
+            // diver.append($serverOrders[key]);
+})
+        
+}
+function getOrders(info){
+    Object.keys(info).forEach(function (order){
+    return(info[order]);
+});
+}
+
+function makeDiv(data){
+    d = document.createElement('div');
+    $(d).addClass("past-orders")
+    .html(getOrders(data))
+    .appendTo($("#myDiv")) //main div
+    .click(function () {
+    $(this).remove();
+})
 }
