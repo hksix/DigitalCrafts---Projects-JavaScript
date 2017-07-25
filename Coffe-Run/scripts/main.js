@@ -19,6 +19,8 @@ $form.on('submit', function (event){
     dataDict($dataKeyNameArr);
     // sendDataToServer($dictData);
     localStorage.setItem("order", $dataKeyNameArr);
+    arrMaker($dataKeyNameArr);
+    appendOrderToHTML($dictData);
 });
 
 
@@ -72,7 +74,7 @@ function arrMaker(arr){
 
 function getServerData(){
     $.get(URL, function (data){
-        return (data);
+        return (JSON.stringify(data));
     });
 }
 
@@ -104,4 +106,17 @@ function checkboxIt() {
     var x = document.createElement("INPUT");
     x.setAttribute("type", "checkbox");
     document.body.appendChild(x);
+}
+
+function appendOrderToHTML(data){
+        var x = $(".past-order span");
+            x.append("order : " + "<br />"+ " " + Object.values(data) + "<br />");
+    }
+
+function getDataFromAPI(){
+    return $.getJSON(URL);
+}
+function getOrdersFromAPI(){
+    getDataFromAPI()
+        .then(appendOrderToHTML);
 }

@@ -65,3 +65,99 @@ is the jQuery version of .forEach()
 
 .text () is .textContent()
 
+Ajax
+"Single page application"
+
+HTTP status code ranges
+2xx Sucess
+3xx redirection
+4xx Client error
+5xx Server error
+
+HTTP verbs REST(ful) services
+GET - Read  
+POST - Create
+PUT- Update
+DELETE - Delete
+PATCH - Update
+
+JSON API and GraphQL
+
+Ajax and jQuery
+$.get
+var URL = 'http://apiserver.com/whatever
+$.get(URL)
+
+$.get(callback)
+$.get(URL, function (data){
+    console.log(data);
+});
+
+function storeData(orders){
+    localStorage.setItem('coffeeOrder', JSON.stringify(orders));
+}
+
+$.post(data)
+var myData = {
+    coffeeOrder: 'espresso",
+    emial: "my@emial.com'
+}
+$.post(URL, myData);
+
+
+Stripe.com is a API database and api.data.GOV 
+
+
+Promises, Promises
+
+function getData(fn){
+    $.get(URL, Function (theData){
+        if (theData){
+            fn(theData);
+        }else{
+            $.get(other_URL, functon (theData){
+
+            }
+        }
+    }
+} this is pyramid of doom
+
+Use promises instead! This is apart of the asynchoruons tool kit
+
+represent a future value
+standardizes error handling 
+
+        var req = $.getData();
+        req
+            .then(drawSomeData);
+            .then(addEventListeners);
+            .then(animateNewData);
+        
+        function getData(){    this is the wrapper function 
+            retrun $.get(URL);
+        }
+put this under main fuction
+    function main(){
+        getData()
+            .then(drawSomeData);
+            .then(addEventListeners);
+            .then(animateNewData);
+    }
+
+handling errors
+function main(){
+        getData()
+            .catch(retryRequest)  This is for errors
+            .then(drawSomeData)
+            .then(addEventListeners)
+            .then(animateNewData)
+            .catch(showError)
+    }
+
+ $.ajax
+ function deleteData(id){
+     return $.ajax( {
+         url: URL = '/' +id,
+         method: "DELETE"
+     });
+ }   
