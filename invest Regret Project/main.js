@@ -11,11 +11,11 @@ var $dataArr = [];
 var $dictData= {};
 var $completeURL;
 
-// example url https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&apikey=5X4II9G2P5S3BJ05
+// HH - example url https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&apikey=5X4II9G2P5S3BJ05
 
-var timeIntervals = ['function=TIME_SERIES_INTRADAY', 'function=TIME_SERIES_DAILY', 'function=TIME_SERIES_WEEKLY', 'function=TIME_SERIES_MONTHLY'];
-var ticker = "symbol=MSFT";
-var dataReturnType = 'datatype=json';
+// HH - timeInterval choices = ['function=TIME_SERIES_INTRADAY', 'function=TIME_SERIES_DAILY', 'function=TIME_SERIES_WEEKLY', 'function=TIME_SERIES_MONTHLY'];
+// HH - ticker example for URL = "symbol=MSFT";
+
 
 function getData(){
     var x = $.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=60min&apikey=5X4II9G2P5S3BJ05");
@@ -60,7 +60,7 @@ function dataDict(arr){
 }
 
 function getServerData(){
-    $.get(URL, function (data){
-        return (JSON.stringify(data));
+    $.get($completeURL, function (data){
+        console.log(JSON.stringify(data));
     });
 }
