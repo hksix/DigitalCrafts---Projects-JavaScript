@@ -7,10 +7,12 @@ var $timeInterval = $('[data-role="time-interval"]');
 var $dataKeyNameArr = [ ['tickerName', $tickerName], 
                         ['timeInterval' , $timeInterval],
                         ];
-
-
+var $dataArr = [];
+var $dictData= {};
+var $completeURL;
 
 // example url https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&apikey=5X4II9G2P5S3BJ05
+
 var timeIntervals = ['function=TIME_SERIES_INTRADAY', 'function=TIME_SERIES_DAILY', 'function=TIME_SERIES_WEEKLY', 'function=TIME_SERIES_MONTHLY'];
 var ticker = "symbol=MSFT";
 var dataReturnType = 'datatype=json';
@@ -25,12 +27,13 @@ function getData(){
 $form.on('submit', function (event){
     event.preventDefault();
     setItemToLocal($dataKeyNameArr);
-    // dataDict($dataKeyNameArr);
+    dataDict($dataKeyNameArr);
     // // sendDataToServer($dictData);
     // localStorage.setItem("order", $dataKeyNameArr);
-    // arrMaker($dataKeyNameArr);
+    arrMaker($dataKeyNameArr);
     // appendOrderToHTML($dictData);
     // getOrdersFromAPI();
+    setUrl($dictData);
 });
 
 function setItemToLocal(arr){
@@ -38,4 +41,26 @@ function setItemToLocal(arr){
             localStorage.setItem(arr[i][0], arr[i][1].val());
         
     }
+}
+function arrMaker(arr){
+    for (var i= 0; i<arr.length; i++){
+        $dataArr.push(arr[i][0], arr[i][1].val());
+    } 
+    return $dataArr;
+}
+function setUrl(arr){
+    var completeURL= URL+'function='+$dictData['timeInterval']+"&symbol="+$dictData['tickerName']+"&apikey="+apiKey;
+    $completeURL = completeURL;
+    console.log (completeURL);
+}
+function dataDict(arr){
+    for (var i = 0; i< arr.length; i++){
+        $dictData[arr[i][0]] = arr[i][1].val();
+    }
+}
+
+function getServerData(){
+    $.get(URL, function (data){
+        return (JSON.stringify(data));
+    });
 }
