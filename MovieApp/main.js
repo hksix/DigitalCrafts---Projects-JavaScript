@@ -4,34 +4,69 @@ var $form = $('[data-search="form"]');
 var $search = $('[data-role="search"]');
 var info = [];
 var theData;
+var allInfo;
+var allIds = [];
+
 
 $(document).on('submit', function (event){
     event.preventDefault();
     var x = getInfo();
     x.then( function (data){
-        info = (data.Search[0].imdbID);
+        info = (data.Search[0]);
         getData(info);
         })   
     })
 
-
 function getInfo(){
     return $.get(OMDbAPI + $search.val());
-    
+// this gets the server response 
 }
+
+function searchAll(){
+    var x = getInfo();
+    x.then( function (data){
+        allInfo = data.Search;
+        giveIds(data.Search);
+        });
+    // giveIds(allInfo);
+
+//this will get all the movie with search term and returns all the object to allInfo
+}
+
+function getIds(){
+    for(var i = 0; i<=allInfo.length-1; i++){
+        allIds.push(allInfo[i].imdbID) ;
+    }
+    //  ["tt0110912", "tt0332732", "tt0478720", "tt0485978", "tt0126575", "tt0310863", "tt6022192", "tt6105748", "tt4392038", "tt4578870"]
+}
+function giveIds(allobjects){
+    for(var i = 0; i<=allobjects.length-1; i++){
+        getData(allobjects[i]);
+        // getData([i]);
+    }
+
+}
+
+
 function getData(info){
-    var x = $.get("http://www.omdbapi.com/?apikey=1ca32dee&i=" + info);
+    var x = $.get("http://www.omdbapi.com/?apikey=1ca32dee&i=" + info["imdbID"]);
     x.then(function (data){
         theData = data;
-        divMaker(theData);
-        moviePoster(theData);
+        // divMaker(theData);
+        // moviePoster(theData);
+        divMaker(data);
+        moviePoster(data);
     });
 }
 
 
 function moviePoster(data){
     var posterSrc = data.Poster;
+    if (posterSrc ==="N/A"){
+       return posterSrc ="No-image-found.jpg";
+    }else{
     return posterSrc;
+    }
 
 }
 
@@ -83,8 +118,8 @@ function movieInfo(data,name,movieTitle){
 
 function dataExtractor(data){
     var info;
-    var keys = Object.keys(theData);
-    var values = Object.values(theData);
+    var keys = Object.keys(data);
+    var values = Object.values(data);
     for (i in keys){
        info +=("\n")+keys[i] +("\n")+': ' +values[i] +("\n");
         }
