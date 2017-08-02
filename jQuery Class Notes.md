@@ -161,3 +161,26 @@ function main(){
          method: "DELETE"
      });
  }   
+
+ var cat = {
+     title: 'cat',
+     speak: fuction(){
+         return "hey im a " + this.title;
+     }
+ };
+
+ var okaley = Object.create(cat);
+ oakley.title = 'mr oakley fancy pants';
+
+ .call
+ .apply
+ .this
+
+ function cat(){
+     this.tite = 'cat';
+     this.speak = function (){
+         return 'hello i am' + this.title
+     }
+ }
+ var oakley = new cat();
+ 

@@ -19,29 +19,29 @@ const yelp = (what) => {
 // fs.watch('README.md', function(event){
 fs.watch('README.md', (event) => {
     // console.log('ouch');
-    console.log(yelp('sup'));
+    console.log(yelp('sup yo'));
 });
 
 // eveytime touch README.md is created 'string' is logged
 
 // arrow functions : optional parens - 
-const print = what => {return 'Hey: ' + what;}
+// const print = what => {return 'Hey: ' + what;}
 
-fs.watch('README.md', () => {
-    print('ouch');
-});
-// arrow functions: optional curly braces, implicit return - If only returning one thing
-const print = what => 'Hey: ' + what;
-fs.watch('README.md', () => {
-    print('ouch')
-});
+// fs.watch('README.md', () => {
+//     print('ouch');
+// });
+// // arrow functions: optional curly braces, implicit return - If only returning one thing
+// const print = what => 'Hey: ' + what;
+// fs.watch('README.md', () => {
+//     print('ouch')
+// });
 
-const isEven = val => (val % 2 == 0);
-const evenlyDivBy = (val, div) => (val % div == 0);
+// const isEven = val => (val % 2 == 0);
+// const evenlyDivBy = (val, div) => (val % div == 0);
 
-[1,2,3,4].filter(isEven);
+// [1,2,3,4].filter(isEven);
 
-// make note of this for code organization 
-const print = what => (
-    'Hey: ' + what
-);
+// // make note of this for code organization 
+// const print = what => (
+//     'Hey: ' + what
+// );
