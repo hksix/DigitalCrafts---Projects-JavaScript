@@ -29,3 +29,35 @@
 //   TypeError: Assignment to constant variable
     // no rebinding but you can mutate .push
 // 
+
+// input/output
+const fs = require('fs');
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question('filename: ', function(filename){
+    rl.close();
+    fs.readFile(filename, function(err,buffer){ //buffer is binary data in a file. has to be changed to a string(or other primitive)
+        if(err){
+            console.log(err.message);
+            return;
+        }// above is just a way to catch a error
+        let content = buffer.toString(); // change binary data to string
+        let upcased = content.toUpperCase();
+        console.log(upcased);
+    });
+});
+
+//error first callback pattern
+    // if (err){ console.log(err.mesage); return; }
+    // Node APIs receive the error arg first!****** get in the habbit on doing this
+
+// streams
+    // 
+//I/O:reading 
+
+// I/Owriting
