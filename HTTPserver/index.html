@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lottery Number Generator App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/Users/hamzahaseeb/HTML-and-CSS-Repos/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <!-- <script src="/Users/hamzahaseeb/HTML-and-CSS-Repos/bootstrap-3.3.7-dist/css/bootstrap.css"></script> -->
+</head>
+<body>
+    <div class="navigtaion">
+        <div class="logo">
+            <img src="/Users/hamzahaseeb/DigitalCrafts-06-2017/JavaScript101/LotteryApp/Mega_Millions_Lottery_logo.svg.png" alt="powerball logo">
+        </div>
+        <div class="work-cited">
+            Brought to by Cyan Applications
+        </div>
+    </div>
+    <div class="top-background">
+    </div>
+    <header>
+        <div class='heading'><h1>Lottery Number Generator</h1></div>
+        <p class="text-center"><u>Press button to generate random lottery numbers</u></p>
+    </header>
+    <div class="row">
+    <div class="col-xs-12">
+    <ul class = "number-spots-5 text-center" data-numbers="first-five">
+        <li data-ball="first-1" data-ball-num="5">X</li>
+        <li data-ball="first-2" data-ball-num="5">X</li>
+        <li data-ball="first-3" data-ball-num="5">X</li>
+        <li data-ball="first-4" data-ball-num="5">X</li>
+        <li data-ball="first-5" data-ball-num="5">X</li>
+        <li data-numbers="last-1" data-ball-num="2">X</li>
+    </ul>
+     </div> 
+    </div>
+    <div class="button col-md-6 col-md-offset-3">
+    <button class="button btn btn-success btn-lg btn-block" type="button" data-button>GoodLuck!</button></div>
+    <div class="results">
+    <article>Results</article>
+    </div>
+    <script
+        src="http://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script src="main.js" charset="utf-8"></script>
+</body>
+</html>
