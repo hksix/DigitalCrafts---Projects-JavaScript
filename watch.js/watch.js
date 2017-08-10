@@ -45,3 +45,7 @@ fs.watch('README.md', (event) => {
 // const print = what => (
 //     'Hey: ' + what
 // );
+
+// Websockets
+// data arrives in the correct order
+// way faster than AJAX. AJAX doesnt send data back in the correct order if there is a log
